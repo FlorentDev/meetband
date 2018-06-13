@@ -13,8 +13,22 @@ if(isset($_POST[user]) && isset($_POST[pass])){
     var $pass = $_POST[pass];
 }
 
-$bdd->new PDO("mysql:host=".$host.";dbname=".$db,$user, $password);
+var $bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $password);
 
-$request = $bdd->prepare("SELECT user, password, salt FROM user WHERE :user=user");
+var $request = $bdd->prepare("SELECT user, password, salt FROM user WHERE :user=user");
 $request->bind_param(":user", $user);
 $request->execute();
+
+var $answer = $request->fetchAll();
+
+if($answer[0][0]==$user && $answer[0][1]==$pass){
+    session_start();
+    $_SESSION["user"]=$user;
+    return 'valid';
+}
+elseif ($answer[0][0]!=$user){
+    return "id";
+}
+elseif ($answer[0][1]!=$pass){
+    return "pwd";
+}
