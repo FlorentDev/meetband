@@ -6,6 +6,7 @@
  * Time: 20:00
  */
 
+$host = "localhost";
 $user = "isen";
 $pwd = "yncrea";
 $db = "meetband";

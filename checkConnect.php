@@ -8,15 +8,15 @@
 
 require("infoBDD.php");
 
-if(isset($_POST[user]) && isset($_POST[pass])){
-    var $user = $_POST[user];
-    var $pass = $_POST[pass];
+if(isset($_POST["user"]) && isset($_POST["pass"])){
+    var $user = $_POST["user"];
+    var $pass = $_POST["pass"];
 }
 
-var $bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $password);
+var $bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $pwd);
 
 var $request = $bdd->prepare("SELECT user, password, salt FROM user WHERE :user=user");
-$request->bind_param(":user", $user);
+$request->bindParam(":user", $user);
 $request->execute();
 
 var $answer = $request->fetchAll();
