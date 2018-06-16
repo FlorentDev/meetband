@@ -9,26 +9,26 @@
 require("infoBDD.php");
 
 if(isset($_POST["user"]) && isset($_POST["pass"])){
-    var $user = $_POST["user"];
-    var $pass = $_POST["pass"];
+    $id = $_POST["user"];
+    $pass = $_POST["pass"];
 }
 
-var $bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $pwd);
+$bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $pwd);
 
-var $request = $bdd->prepare("SELECT user, password, salt FROM user WHERE :user=user");
-$request->bindParam(":user", $user);
+$request = $bdd->prepare("SELECT user, password, salt FROM user WHERE user=:user");
+$request->bindParam(":user", $id);
 $request->execute();
 
-var $answer = $request->fetchAll();
+$answer = $request->fetchAll();
 
-if($answer[0][0]==$user && $answer[0][1]==$pass){
+if(count($answer)==1 && $answer[0]['user']==$id && $answer[0]['password']==$pass){
     session_start();
     $_SESSION["user"]=$user;
-    return 'valid';
+    echo 'valid';
 }
-elseif ($answer[0][0]!=$user){
-    return "id";
+elseif (count($answer)!=1 || $answer[0]['user']!=$id){
+    echo "id";
 }
-elseif ($answer[0][1]!=$pass){
-    return "pwd";
+elseif ($answer[0]['password']!=hash("sha512", $pass.$answer[0]['salt'])){
+    echo "pwd";
 }

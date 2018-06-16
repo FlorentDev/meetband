@@ -51,7 +51,7 @@
                             <div class="col-lg-12"><h1>Inscription</h1></div>
                         </div>
                         <br>
-                        <form action="checkConnect.php" method="post" name="Inscription">
+                        <form name="Inscription">
                             <div class="row">
                                 <div class="col-lg-6">Nom d'utilisateur:</div>
                                 <div class="col-lg-6"><input type="text" name="user"></div>
@@ -74,12 +74,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">Re taper le mot de passe:</div>
-                                <div class="col-lg-6"><input type="text" name="passCheck"></div>
+                                <div class="col-lg-6"><input type="password" name="passCheck"></div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col"></div>
-                                <input class="col btn btn-outline-primary" type="submit" value="S'incscrire">
+                                <input class="col btn btn-outline-primary" type="button" onclick="signup()" value="S'incscrire">
                                 <div class="col-1"></div>
                                 <input class="col btn btn-outline-secondary" type="button" value="Se connecter" onclick="to_login()">
                                 <div class="col"></div>

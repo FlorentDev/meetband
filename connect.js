@@ -10,14 +10,17 @@ function to_login() {
 
 function log() {
     var xhr = getXMLHttpRequest();
-    var id = document.forms['Connexion'].elements['user'];
-    var pwd = document.forms['Connexion'].elements['pass'];
+    var form = new FormData();
+    form.append("user", document.forms['Connexion'].elements['user'].value);
+    form.append("pass", document.forms['Connexion'].elements['pass'].value);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            answer = xhr.responseText;
+            var id = document.forms['Connexion'].elements['user'];
+            var pwd = document.forms['Connexion'].elements['pass'];
+            var answer = xhr.responseText;
             if(answer=="valid"){
-                xhr.open("GET", "index.php", true);
-                xhr.send();
+                //xhr.open("GET", "index.php", true);
+                //xhr.send();
                 window.location = "index.php";
             }
             else if (answer=="id"){
@@ -39,15 +42,31 @@ function log() {
     };
     xhr.open("POST", "checkConnect.php", true);
     xhr.setRequestHeader("Conent-tyoe", "application/x-www-form-urlencoded");
-    xhr.send("pseudo=" + id.value + "&pwd=" + pwd.value);
+    xhr.send(form);
 }
 
-function sign(callback) {
+function signup(){
     var xhr = getXMLHttpRequest();
+    var form = new FormData();
+    form.append("pseudo", document.forms['Inscription'].elements['user'].value);
+    form.append("firstname", document.forms['Inscription'].elements['firstname'].value);
+    form.append("name", document.forms['Inscription'].elements['name'].value);
+    form.append("email", document.forms['Inscription'].elements['email'].value);
+    form.append("pwd", document.forms['Inscription'].elements['pass'].value);
+    form.append("pwd2", document.forms['Inscription'].elements['passCheck'].value);
     xhr.onreadystatechange = function () {
-        if(xhr.readyState==4 && (xhr.status==200 || xhr.status == 0)){
-            callback(xhr.responseText);
+        var pseudo = document.forms['Inscription'].elements['user'];
+        var firstname = document.forms['Inscription'].elements['firstname'];
+        var name = document.forms['Inscription'].elements['name'];
+        var email = document.forms['Inscription'].elements['email'];
+        var pwd = document.forms['Inscription'].elements['pass'].value;
+        var pwd2 = document.forms['Inscription'].elements['passCheck'];
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            // TODO : traitement du retour PHP
+            document.body.innerHTML = xhr.responseText;
         }
-        xhr.open("POST")
-    }
+    };
+    xhr.open("POST", "checkRegister.php", true);
+    xhr.setRequestHeader("Conent-tyoe", "application/x-www-form-urlencoded");
+    xhr.send(form);
 }
