@@ -21,7 +21,7 @@ if(!isset($_POST["name"]) || $_POST["name"]=""){
     echo "name";
     $erreur = 1;
 }
-if(!isset($_POST["email"]) || filter_var(($_POST["email"], FILTER_VALIDATE_EMAIL)){
+if(!isset($_POST["email"]) || filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     echo "mail";
     $erreur = 1;
 }
