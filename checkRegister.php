@@ -13,19 +13,19 @@ if(!isset($_POST["pseudo"]) || $_POST["pseudo"]==""){
     echo "id";
     $erreur = 1;
 }
-if(!isset($_POST["firstname"]) || $_POST["firstname"]==""){
+elseif(!isset($_POST["firstname"]) || $_POST["firstname"]==""){
     echo "firstname";
     $erreur = 1;
 }
-if(!isset($_POST["name"]) || $_POST["name"]=""){
+elseif(!isset($_POST["name"]) || $_POST["name"]=""){
     echo "name";
     $erreur = 1;
 }
-if(!isset($_POST["email"]) || filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+elseif(!isset($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     echo "mail";
     $erreur = 1;
 }
-if(!isset($_POST["pwd"]) || !isset($_POST["pwd2"]) || $_POST["pwd"] != $_POST["pwd2"]){
+elseif(!isset($_POST["pwd"]) || !isset($_POST["pwd2"]) || $_POST["pwd"] != $_POST["pwd2"]){
     echo "pwd";
     $erreur = 1;
 }
@@ -54,5 +54,3 @@ if(!$erreur){
     else
         echo "error";
 }
-else
-    echo "errorAll";
