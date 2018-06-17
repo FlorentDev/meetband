@@ -22,4 +22,5 @@ function contact() {
     xhr.send();
 }
 
+
 contact();

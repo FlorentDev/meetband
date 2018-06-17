@@ -28,19 +28,19 @@ foreach ($messages as $message) {
     }
     if (!$exist) {
         if ($message[0] == $_SESSION['user'] && isset($_SESSION['contact']) && $_SESSION['contact']==$message[1]) {
-            echo "<div class='nav-item'><a class='nav-link active' href='".$message[1]."'>".$message[1]. "</a></div>";
+            echo "<div class='nav-item'><a class='nav-link active' href='#?contact=".$message[1]."'>".$message[1]. "</a></div>";
             $contact->append($message[1]);
         }
         elseif ($message[1] == $_SESSION['user'] && isset($_SESSION['contact']) && $_SESSION['contact']==$message[0]) {
-            echo "<div class='nav-item active'><a class='nav-link active' href='" . $message[0] . "'>" . $message[0] . "</a></div>";
+            echo "<div class='nav-item active'><a class='nav-link active' href='#?contact=" . $message[0] . "'>" . $message[0] . "</a></div>";
             $contact->append($message[1]);
         }
         elseif ($message[0] == $_SESSION['user']) {
-            echo "<div class='nav-item'><a class='nav-link' href='".$message[1]."'>".$message[1]. "</a></div>";
+            echo "<div class='nav-item'><a class='nav-link' href='#?contact=".$message[1]."'>".$message[1]. "</a></div>";
             $contact->append($message[1]);
         }
         elseif ($message[1] == $_SESSION['user']) {
-            echo "<div class='nav-item'><a class='nav-link' href='" . $message[0] . "'>" . $message[0] . "</a></div>";
+            echo "<div class='nav-item'><a class='nav-link' href='#?contact=" . $message[0] . "'>" . $message[0] . "</a></div>";
             $contact->append($message[1]);
         }
     }
