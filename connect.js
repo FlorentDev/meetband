@@ -31,13 +31,15 @@ function log() {
                 pwd.style.backgroundColor = "";
                 pwd.value = "";
             }
-            if (answer=="pwd"){
+            else if (answer=="pwd"){
                 id.style.backgroundColor = "";
                 id.placeholder = "";
                 pwd.style.backgroundColor = "red";
                 pwd.value = "";
                 pwd.placeholder = "Mauvais mot de passe";
             }
+            else
+                alert("Erreur serveur");
         }
     };
     xhr.open("POST", "checkConnect.php", true);
@@ -62,8 +64,37 @@ function signup(){
         var pwd = document.forms['Inscription'].elements['pass'].value;
         var pwd2 = document.forms['Inscription'].elements['passCheck'];
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            // TODO : traitement du retour PHP
-            document.body.innerHTML = xhr.responseText;
+            var answer = xhr.responseText;
+            if(answer=="valid")
+                window.location = "index.php";
+            else if (answer=="id"){
+                pseudo.style.backgroundColor = "red";
+                pwd.value="";
+                pwd2.value="";
+            }
+            else if(answer=="firstname"){
+                firstname.style.backgroundColor="red"
+                pwd.value="";
+                pwd2.value="";
+            }
+            else if(answer=="name") {
+                name.style.backgroundColor = "red";
+                pwd.value="";
+                pwd2.value="";
+            }
+            else if(answer=="mail"){
+                email.style.backgroundColor="red";
+                pwd.value="";
+                pwd2.value="";
+            }
+            else if(answer=="pwd"){
+                pwd.style.backgroundColor="red";
+                pwd2.style.backgroundColor="red";
+                pwd.value="";
+                pwd2.value="";
+            }
+            else
+                alert("Erreur serveur");
         }
     };
     xhr.open("POST", "checkRegister.php", true);

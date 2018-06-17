@@ -13,15 +13,17 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
     $pass = $_POST["pass"];
 }
 
-$bdd = new PDO("mysql:host=".$host.";dbname=".$db,$user, $pwd);
+$bdd = new PDO("mysql:host=$host;dbname=$db",$user, $pwd);
 
-$request = $bdd->prepare("SELECT user, password, salt FROM user WHERE user=:user");
+$request = $bdd->prepare("SELECT username, password, salt FROM user WHERE username=:user");
 $request->bindParam(":user", $id);
 $request->execute();
 
 $answer = $request->fetchAll();
 
-if(count($answer)==1 && $answer[0]['user']==$id && $answer[0]['password']==$pass){
+$pass = hash("sha512", $pass.$answer[0]['salt']);
+
+if(count($answer)==1 && $answer[0]['username']==$id && $answer[0]['password']==$pass){
     session_start();
     $_SESSION["user"]=$user;
     echo 'valid';
@@ -29,6 +31,8 @@ if(count($answer)==1 && $answer[0]['user']==$id && $answer[0]['password']==$pass
 elseif (count($answer)!=1 || $answer[0]['user']!=$id){
     echo "id";
 }
-elseif ($answer[0]['password']!=hash("sha512", $pass.$answer[0]['salt'])){
+elseif ($answer[0]['password']!=$pass){
     echo "pwd";
 }
+else
+    echo "erreur";
