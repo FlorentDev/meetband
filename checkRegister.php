@@ -46,8 +46,11 @@ if(!$erreur){
     $pass = hash("sha512", $pass.$salt);
     $request->bindParam(':password', $pass);
     $request->bindParam(':salt', $salt);
-    if($request->execute())
+    if($request->execute()) {
+        session_start();
+        $_SESSION["user"]=$user;
         echo "valid";
+    }
     else
         echo "error";
 }
