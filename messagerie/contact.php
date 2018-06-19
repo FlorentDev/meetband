@@ -6,7 +6,7 @@
  * Time: 17:28
  */
 
-require("infoBDD.php");
+require("../infoBDD.php");
 
 $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 

@@ -6,7 +6,7 @@
  * Time: 15:54
  */
 
-require("infoBDD.php");
+require("../infoBDD.php");
 
 if(isset($_POST["user"]) && isset($_POST["pass"])){
     $id = $_POST["user"];
@@ -32,8 +32,5 @@ if(count($answer)==1 && $answer[0]['username']==$id && $answer[0]['password']==$
 elseif (count($answer)!=1 || $answer[0]['user']!=$id){
     echo "id";
 }
-elseif ($answer[0]['password']!=$pass){
-    echo "pwd";
-}
 else
-    echo "erreur";
+    echo "pwd";

@@ -28,7 +28,5 @@ function changeContact(contact){
     xhr.send();
 }
 
-document.onload = function () {
-    contact();
-    message();
-};
+document.onload = contact();
+document.onload = message();

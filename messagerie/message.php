@@ -6,7 +6,7 @@
  * Time: 17:28
  */
 
-require("infoBDD.php");
+require("../infoBDD.php");
 
 $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 
@@ -23,10 +23,10 @@ if(isset($_SESSION['contact']) && $_SESSION['contact']!='') {
 
     foreach ($messages as $message) {
         if ($message[0] == $_SESSION['user'] && $message[1] == $_SESSION['contact']){
-            echo "<div class='send'>$message[2]</div>";
+            echo "<div class='send row float-right col-7 rounded mb-3 p-2' style='background-color: #a9cfd6;'>$message[2]</div>";
         }
         elseif ($message[1] == $_SESSION['user'] && $message[0] == $_SESSION['contact']){
-            echo "<div class='receive'>$message[2]</div>";
+            echo "<div class='receive row col-7 float-left rounded mb-3 p-2' style='background-color: #eca272;'>$message[2]</div>";
         }
     }
 }
