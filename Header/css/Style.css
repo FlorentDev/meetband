@@ -1,0 +1,36 @@
+
+#logo{
+  position: absolute;
+  left:11%;
+  top: 15%;
+  width: 4.5%;
+}
+#logoMeetBand{
+  position: absolute;
+  left:15%;
+  top: 50%;
+  width: 10%;
+}
+
+
+
+
+.tableauCouleur{
+  background-color: #e9ecef;
+	padding: 2.5%;
+	position: relative;
+	top: 70%;
+	left: calc(5% + 14.06% - 1.041%);
+	width: calc(100% - 2*(5% + 14.06% -  1.041%));
+}
+
+
+.containerTable {
+  width: 100%;
+  padding-right: 8%;
+  padding-left: 8%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
