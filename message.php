@@ -12,6 +12,7 @@ $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 
 session_start();
 $_SESSION['user']='Flo';
+$_SESSION['contact']='Sarah';
 if(isset($_SESSION['contact']) && $_SESSION['contact']!='') {
     $contact = new ArrayObject();
     $request = $bdd->prepare("SELECT s.username, r.username, message FROM message INNER JOIN user s on message.user1 = s.id INNER JOIN user r on message.user2 = r.id WHERE s.username=:sender or r.username=:receiver");
@@ -21,10 +22,10 @@ if(isset($_SESSION['contact']) && $_SESSION['contact']!='') {
     $messages = $request->fetchAll();
 
     foreach ($messages as $message) {
-        if ($messages[0] == $_SESSION['user'] && $messages[1] == $_SESSION['contact']){
+        if ($message[0] == $_SESSION['user'] && $message[1] == $_SESSION['contact']){
             echo "<div class='send'>$message[2]</div>";
         }
-        elseif ($messages[1] == $_SESSION['user'] && $messages[0] == $_SESSION['contact']){
+        elseif ($message[1] == $_SESSION['user'] && $message[0] == $_SESSION['contact']){
             echo "<div class='receive'>$message[2]</div>";
         }
     }

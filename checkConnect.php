@@ -21,7 +21,8 @@ $request->execute();
 
 $answer = $request->fetchAll();
 
-$pass = hash("sha512", $pass.$answer[0]['salt']);
+if(count($answer)==1)
+    $pass = hash("sha512", $pass.$answer[0]['salt']);
 
 if(count($answer)==1 && $answer[0]['username']==$id && $answer[0]['password']==$pass){
     session_start();

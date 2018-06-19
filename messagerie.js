@@ -8,7 +8,6 @@ function message() {
     };
     xhr.open("POST", "message.php", true);
     xhr.send();
-    window.setTimeout(message(), 100);
 }
 
 function contact() {
@@ -29,5 +28,7 @@ function changeContact(contact){
     xhr.send();
 }
 
-contact();
-//message();
+document.onload = function () {
+    contact();
+    message();
+};

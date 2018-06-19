@@ -39,7 +39,7 @@ function log() {
                 pwd.placeholder = "Mauvais mot de passe";
             }
             else
-                alert("Erreur serveur");
+                alert(answer);
         }
     };
     xhr.open("POST", "checkConnect.php", true);
