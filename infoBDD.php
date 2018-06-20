@@ -7,6 +7,6 @@
  */
 
 $host = "localhost";
-$user = "isen";
-$pwd = "yncrea";
+$user = "root";
+$pwd = "";
 $db = "meetband";
