@@ -7,7 +7,7 @@
  */
 
 session_start();
-if ((!isset($_SESSION)) && $_SESSION["user"]==""){
+if ((!isset($_SESSION["user"])) && $_SESSION["user"]==""){
     header("Location: ../connexion/connexion.php");
 }
 ?>

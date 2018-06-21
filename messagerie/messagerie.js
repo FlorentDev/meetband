@@ -28,5 +28,24 @@ function changeContact(contact){
     xhr.send();
 }
 
+function sendMessage(){
+    var xhr = getXMLHttpRequest();
+    var form = new FormData();
+    form.append("message", document.forms[0].elements['message'].value);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var message = document.forms[0].elements['message'];
+            if(answer=="valid"){
+                message.value = "";
+            }
+            else
+                alert("Erreur serveur");
+        }
+    };
+    xhr.open("POST", "sendMessage.php", true);
+    xhr.setRequestHeader("Content-tyoe", "application/x-www-form-urlencoded");
+    xhr.send(form);
+}
+
 document.onload = contact();
 document.onload = message();

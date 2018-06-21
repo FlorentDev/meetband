@@ -43,7 +43,7 @@ function log() {
         }
     };
     xhr.open("POST", "checkConnect.php", true);
-    xhr.setRequestHeader("Conent-tyoe", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-tyoe", "application/x-www-form-urlencoded");
     xhr.send(form);
 }
 
