@@ -26,12 +26,11 @@ if(isset($_SESSION['user']))
              if(isset($_POST['creationannonce'])){
                 $titre = htmlspecialchars($_POST['titre']);
                 $contenu = htmlspecialchars($_POST['contenu']);
-                
-                if(!empty($_POST['titre']) AND !empty($_POST['contenu'])) 
+                $niveau = htmlspecialchars($_POST['niveau']);
+                if(!empty($_POST['titre']) AND !empty($_POST['contenu']) AND !empty($_POST['niveau'])) 
                 {
-                    $insert = $bdd->prepare("INSERT INTO annonces(titre, contenu) VALUES (?,?)");
-                    $insert->execute(array($titre, $contenu));
-                   
+                    $insert = $bdd->prepare("INSERT INTO annonces(titre, contenu, niveau) VALUES (?,?,?)");
+                    $insert->execute(array($titre, $contenu,$niveau));
                     
                 }
                 //header("Location : index.php");
@@ -123,26 +122,7 @@ input[type="range"]:after {
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">MeetBand</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">Accueil</a></li>
-        <li><a href="#band">Profil</a></li>
-        <li><a href="#tour">Chat</a></li>
-        <li><a href="#contact">Menu</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 
 <div class="container-fluid">
   <div class="row content">
@@ -220,12 +200,26 @@ input[type="range"]:after {
 Votre annonce ici.
 </textarea>
     </br>
+    </br>
     
+<p> Indiquez votre niveau ou le niveau recherché : </p>
+
+</br>
+    
+    <select name="niveau">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="4">5</option>
+</select>
+
+</br>
     </br>
 
      <input type="submit" value="Valider" name="creationannonce"/>
      </br>
-     </br>
+    
 </form>
       
       <hr>
