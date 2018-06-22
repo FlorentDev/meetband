@@ -26,7 +26,7 @@ if(count($answer)==1)
 
 if(count($answer)==1 && $answer[0]['username']==$id && $answer[0]['password']==$pass){
     session_start();
-    $_SESSION["user"]=$user;
+    $_SESSION["user"]=$id;
     echo 'valid';
 }
 elseif (count($answer)!=1 || $answer[0]['user']!=$id){
