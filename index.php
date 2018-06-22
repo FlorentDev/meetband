@@ -9,14 +9,13 @@ and open the template in the editor.
 
 <?php
  session_start();
- $_SESSION['user']="sarah";
 if (!isset($_SESSION['user']))
 {
-    header("Location: connexion.php");
+    header("Location: connexion/connexion.php");
 }
 // On démarre la session AVANT d'écrire du code HTML
-
-$bdd = new PDO ('mysql: host = localhost ; dbname=annonces', 'root','');
+require("infoBDD.php");
+$bdd = new PDO ("mysql: host = $host ; dbname=$db", $user, $pwd);
 if(isset($_SESSION['user']))
 {
     $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=1"); 
@@ -36,8 +35,8 @@ if(isset($_SESSION['user']))
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap.min.css">
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   
   <style>
       input[type="range"] {
