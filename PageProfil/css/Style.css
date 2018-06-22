@@ -1,0 +1,108 @@
+
+#logo{
+  position: absolute;
+  left:11%;
+  top: 5%;
+  width: 4.5%;
+}
+#logoMeetBand{
+  position: absolute;
+  left:15%;
+  top: 30%;
+  width: 10%;
+}
+
+
+
+
+#Nom{
+  font-family: 'Vollkorn', serif;
+  position:absolute;
+  left:20%;
+  top: 50%;
+  color:#fff;
+}
+#NomScene{
+  font-family: 'Vollkorn', serif;
+  position:absolute;
+  left:20%;
+  top:56%;
+  color:#fff;
+}
+#tableauInstru{
+    text-align: right;
+    position: relative;
+    left:0%;
+    top:40%;
+    width: 100%;
+}
+.instrumentJoué{
+  width: 6.5%;
+}
+
+#enPlus{
+  background: url("img/InstrumentJoue/plus.png");
+}
+#enPlus a:hover {
+    background: url('img/InstrumentJoue/plus2.png');
+}
+
+
+
+
+
+
+
+
+
+.tableauCouleur{
+  background-color: #e9ecef;
+	padding: 2.5%;
+	position: relative;
+	top: 70%;
+	left: calc(5% + 14.06% - 1.041%);
+	width: calc(100% - 2*(5% + 14.06% -  1.041%));
+}
+
+
+#description{
+  font: italic small-caps bold 75%/100% Comic Sans MS;
+  }
+
+.containerTable {
+  width: 100%;
+  padding-right: 8%;
+  padding-left: 8%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+#cercle{
+	position: absolute;
+	left: calc(5% -  1.04%);
+	top: calc(47.5% -  2%);
+	width: 14.06%;
+	height: 29%;
+	background: rgb(210,210,210);
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+}
+.Arrondi{
+	overflow:hidden;
+	-webkit-border-radius:100%;
+	-moz-border-radius:100%;
+	border-radius:100%;
+	position: absolute;
+	left: 5%;
+	top:47.5%;
+	width:11.98%;
+	height:25%;
+}
+#AvatarImage {
+	width: 100%;
+}
