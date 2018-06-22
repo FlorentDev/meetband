@@ -33,7 +33,10 @@ if ((!isset($_SESSION["user"])) && $_SESSION["user"]==""){
                     Test
                 </div>
                 <div class="row p-1">
-                    <textarea class="form-control" placeholder="Votre message..."></textarea>
+                    <form onsubmit="sendMessage();" class="row col-12">
+                        <input type="text" name="message" class="form-control col-9" placeholder="Votre message...">
+                        <input type="submit" class="col-3 btn btn-primary">
+
                 </div>
             </div>
         </div>

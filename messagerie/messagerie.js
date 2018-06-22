@@ -35,17 +35,20 @@ function sendMessage(){
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             var message = document.forms[0].elements['message'];
+            var answer = xhr.responseText;
             if(answer=="valid"){
                 message.value = "";
             }
-            else
-                alert("Erreur serveur");
+            else {
+                alert("Erreur serveur : "+answer);
+            }
         }
     };
     xhr.open("POST", "sendMessage.php", true);
     xhr.setRequestHeader("Content-tyoe", "application/x-www-form-urlencoded");
     xhr.send(form);
+    return false;
 }
 
-document.onload = contact();
-document.onload = message();
+window.onload = contact();
+window.onload = message();
