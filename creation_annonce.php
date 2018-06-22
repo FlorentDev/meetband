@@ -191,7 +191,6 @@ input[type="range"]:after {
 </p>   
     
 <form action="" method="post">
-<p>
    
     <input type="text" name="titre" />
     </br>
