@@ -15,10 +15,9 @@ if (!isset($_SESSION['user']))
 }
 // On démarre la session AVANT d'écrire du code HTML
 
-$bdd = new PDO ('mysql: host = localhost ; dbname=annonces', 'root','');
-if(isset($_SESSION['user']))
-{
-    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=1"); 
+require("infoBDD.php");
+$bdd = new PDO("mysql:host=$host;dbname=$db", $user,$pwd);
+$recup = $bdd->prepare("SELECT * FROM annonces WHERE id=1");
     $recup->execute(array($_SESSION['user']));
             $donnees = $recup->fetch();
             
@@ -44,9 +43,9 @@ if(isset($_SESSION['user']))
         <title>MeetBand</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <script src="jquery.min.js"></script>
-  <script src="bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
    
   <style>
        *{margin:0;padding:0;}
@@ -123,26 +122,7 @@ input[type="range"]:after {
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">MeetBand</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">Accueil</a></li>
-        <li><a href="#band">Profil</a></li>
-        <li><a href="#tour">Chat</a></li>
-        <li><a href="#contact">Menu</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php include("Header/PageProfil.html"); ?>
 
 <div class="container-fluid">
   <div class="row content">
@@ -237,49 +217,7 @@ Votre annonce ici.
         </div>
       </div>
     </div>
- 
 
-
-
- 
-<footer class="container-fluid">
- <h2> Avis </h2>
-<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-    <h4>"Excellent site!"<br><span style="font-style:normal;">Michael Roe, Vice President, Comment Box</span></h4>
-    </div>
-    <div class="item">
-      <h4>"Un mot... WOW!!"<br><span style="font-style:normal;">John Doe, Salesman, Rep Inc</span></h4>
-    </div>
-    <div class="item">
-      <h4>"J'ai rencontré un très bon chanteur qui est aujourd'huui l'amour de ma vie Zidane !"<br><span style="font-style:normal;">Julie , chanteuse</span></h4>
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="fa fa-arrow-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="fa fa-arrow-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> 
-</footer>
-        
-<?php
-}
-?>
 </body>
    </html>
 
