@@ -38,8 +38,9 @@ function log() {
                 pwd.value = "";
                 pwd.placeholder = "Mauvais mot de passe";
             }
-            else
-                alert(answer);
+            else{
+                alert("Erreur");
+            }
         }
     };
     xhr.open("POST", "checkConnect.php", true);
