@@ -2,10 +2,13 @@
 
 <?php
 
-
+    session_start();
+    if ((!isset($_SESSION["user"])) && $_SESSION["user"]==""){
+        header("Location: ../connexion/connexion.php");
+    }
     require("../infoBDD.php");
 
-    $bdd = new PDO("mysql:host=$host,dbname=$db", $user, $pwd);
+    $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 
 
     $q = $bdd ->prepare("SELECT username, firstname, Avatar, description, img_fond, facebook, youtube, twitter FROM user WHERE username=:user");
