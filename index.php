@@ -10,10 +10,9 @@ and open the template in the editor.
 
 <?php
 session_start();
-$_SESSION['user']="sarah";
 if (!isset($_SESSION['user']))
 {
-    header("Location: connexion.php");
+    header("Location: connexion/connexion.php");
 }
 // On démarre la session AVANT d'écrire du code HTML
 require("infoBDD.php");
