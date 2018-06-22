@@ -89,7 +89,6 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer"></div>
         <script src="../js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../oXHR.js"></script>
         <script src="connect.js"></script>

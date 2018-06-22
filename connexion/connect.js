@@ -21,7 +21,7 @@ function log() {
             if(answer=="valid"){
                 //xhr.open("GET", "index.php", true);
                 //xhr.send();
-                window.location = "index.php";
+                window.location = "../index.php";
             }
             else if (answer=="id"){
                 id.style.backgroundColor = "red";
