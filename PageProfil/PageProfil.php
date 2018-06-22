@@ -15,7 +15,6 @@
     $q->execute();
     $r = $q ->fetchAll();
 
-
     $usernamePhp = $r[0]['username'];
     $firstnamePhp = $r[0]['firstname'];
     $AvatarPhp = $r[0]['Avatar'];
@@ -172,12 +171,12 @@
                             </ul>
                         </div>
                     </div>
+                    <a href="../creation_annonce.php">Ajouter une annonce</a>
                 </div>
             </footer>
         </td>
     </tr>
 </table><br><br><br>
-
 
 <!-- Annonce -->
 <table class="tableauCouleur">
