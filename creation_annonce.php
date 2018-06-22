@@ -209,10 +209,28 @@ Votre annonce ici.
       
       <hr>
 
-  
-     
-            
-          </div>
+        <p> Indiquez votre niveau ou le niveau recherché : </p>
+
+        </br>
+
+        <select name="niveau">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4">5</option>
+        </select>
+
+        </br>
+        </br>
+
+        <input type="submit" value="Valider" name="creationannonce"/>
+        </br>
+
+
+
+
+    </div>
         </div>
       </div>
     </div>
