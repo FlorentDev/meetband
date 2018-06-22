@@ -21,7 +21,7 @@ if ((!isset($_SESSION["user"])) && $_SESSION["user"]==""){
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body  data-spy="scroll" data-target="#conv" data-offset="1" style="height: 100%;">
-    <div class="card-header"></div>
+    <?php include('../Header/PageProfil.html'); ?>
     <div class="container-fluid" style="height: 97%;">
         <div class="row" style="height: 100%">
             <nav id="contact" class="flex-column nav-pills nav-justified col-2 border border-left-0 border-bottom-0 border-top-0 border-danger"  style="background-color: #b3d7ff;">
