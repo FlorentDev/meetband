@@ -1,37 +1,35 @@
-<?php
- session_start();
-if (isset($_SESSION['pseudo']))
-{
-    echo 'Bonjour ' . $_SESSION['pseudo'];
-}
-// On démarre la session AVANT d'écrire du code HTML
-if ((!isset($_SESSION)) && $_SESSION["user"]==""){
-    header("Location: ../connexion/connexion.php");
-}
-?>
-?>
-
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php 
-try {
-    $bdd = new PDO ('mysql: host = localhost ; dbname=annonces', 'root','');
-
-} catch (Exception $ex) {
-    die('Erreur:' .$e->getMessage());
-}
 
 
 
-$reponse = $bdd->query('SELECT * FROM `annonces');
-while ($donnees = $reponse -> fetch())
+<?php
+ session_start();
+ $_SESSION['user']="sarah";
+if (!isset($_SESSION['user']))
 {
+    header("Location: connexion.php");
+}
+// On démarre la session AVANT d'écrire du code HTML
+
+$bdd = new PDO ('mysql: host = localhost ; dbname=annonces', 'root','');
+if(isset($_SESSION['user']))
+{
+    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=1"); 
+    $recup->execute(array($_SESSION['user']));
+            $donnees = $recup->fetch();
+            
+       
+
 ?>
+
+
+
+
 <html>
 <head>
   <title>MeetBand</title>
@@ -40,7 +38,6 @@ while ($donnees = $reponse -> fetch())
   <link rel="stylesheet" href="bootstrap.min.css">
   <script src="jquery.min.js"></script>
   <script src="bootstrap.min.js"></script>
-  
   
   <style>
       input[type="range"] {
@@ -132,7 +129,7 @@ input[type="range"]:after {
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#myPage">Accueil</a></li>
-        <li><a href="#band">Profil</a></li>
+        <li><a href="#creation_annonce.php">Profil</a></li>
         <li><a href="#tour">Chat</a></li>
         <li><a href="#contact">Menu</a></li>
       </ul>
@@ -194,60 +191,46 @@ input[type="range"]:after {
             
     </div>
 
+   
     <div class="col-sm-9">
     </br>
     </br>
     </br>
     </br>
-    
-      <h4><small>Annonces</small></h4>
-      <hr>
-      <h2><?php echo $donnees['titre']; ?></h2>
       
-      <div class="media">
-        <div class="media-left">
-          <img src="img_avatar2.png" class="media-object" style="width:45px">
-        </div>
-        
+      <?php 
+
+     echo " <h4><small>Annonces</small></h4>";
+     echo" <hr>";
+     echo " <h2>". $donnees['titre']." </h2>";
+          
+     echo '<div class="media">';
+       echo' <div class="media-left">';
+          echo '<img src="img_avatar2.png" class="media-object" style="width:45px">';
+      echo"  </div>";
+
 
       
-      <h5><span class=" glyphicon-calendar"></span> Post by Jane Dane, Sep 27, 2018.</h5>
-      <h5><span class="label label-danger">sing</span> <span class="label label-primary">voice</span></h5><br>
-      <p><?php echo $donnees['contenu']; ?></p>
-      <?php 
-      }
-      $reponse -> closeCursor();
-      ?>
-      
-      <br><br> 
+     echo' <h5><span class=" glyphicon-calendar"></span> Post by Jane Dane, Sep 27, 2018.</h5>';
+      echo '<h5><span class="label label-danger">sing</span> <span class="label label-primary">voice</span></h5><br>';
+      echo"<p>". $donnees['contenu']."</p>";
+          
+     
+echo"<br><br>"; 
+}
+?>
       
       <h4><small>RECENT POSTS</small></h4>
       <hr>
-      <?php 
-      
-      //On ajoute une entrée dans la table annonces
-$req = $bdd->prepare('INSERT INTO annonces(titre, contenu) VALUES(:titre, :contenu)');
-$req->execute(array(
-	'titre' => $titre,
-	'contenu' => $contenu,
-	));
-
-echo 'Lannonce a bien été ajouté !';
-?>
-
     
-  <!--<input type="range" value="1" max="5" min="0" step="1"style="width:85px">-->
       
-      <
-            
+      
           </div>
         </div>
       </div>
     </div>
- 
-
 <footer class="container-fluid">
- <h2>Ce que pensent les internautes </h2>
+ <h2>Avis</h2>
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -279,7 +262,9 @@ echo 'Lannonce a bien été ajouté !';
     <span class="sr-only">Next</span>
   </a>
 </div> 
-</footer>
-        
+</footer> 
+
+
     </body>
+     
 </html>
