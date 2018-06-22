@@ -43,3 +43,23 @@ foreach ($messages as $message) {
         }
     }
 }
+echo "Autre contact";
+$request = $bdd->prepare("SELECT username FROM user");
+$request->execute();
+$users = $request->fetchAll();
+
+foreach ($users as $id) {
+    $exist = 0;
+    foreach ($contact as $one) {
+        if($id[0]==$one)
+            $exist=1;
+    }
+    if ($id[0] != $_SESSION['user'] && $_SESSION['contact']==$id[0] && !$exist) {
+        echo "<div class='nav-item active'><a class='nav-link' href='#' onclick='changeContact(\"" . $id[0] . "\")'>" . $id[0] . "</a></div>";
+        $contact->append($id[0]);
+    }
+    else if ($id[0] != $_SESSION['user'] && !$exist) {
+        echo "<div class='nav-item'><a class='nav-link' href='#' onclick='changeContact(\"" . $id[0] . "\")'>" . $id[0] . "</a></div>";
+        $contact->append($id[0]);
+    }
+}
