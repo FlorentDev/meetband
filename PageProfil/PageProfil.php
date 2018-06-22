@@ -3,16 +3,15 @@
 <?php
 
     session_start();
-    if ((!isset($_SESSION["user"])) && $_SESSION["user"]==""){
+    if ((!isset($_SESSION["user"])) || $_SESSION["user"]==""){
         header("Location: ../connexion/connexion.php");
     }
     require("../infoBDD.php");
 
     $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 
-
     $q = $bdd ->prepare("SELECT username, firstname, Avatar, description, img_fond, facebook, youtube, twitter FROM user WHERE username=:user");
-    $q->bindParam(":user", $id);
+    $q->bindParam(":user", $_SESSION['user']);
     $q->execute();
     $r = $q ->fetchAll();
 
@@ -83,13 +82,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="Accueil.html">Accueil</a>               <!-- page de Sarah -->
+                    <a class="nav-link" href="../index.php">Accueil</a>               <!-- page de Sarah -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Profil</a>
+                    <a class="nav-link" href="PageProfil.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Message.html">Message</a>               <!-- Messagerie de Florent -->
+                    <a class="nav-link" href="/messagerie/messagerie.php">Message</a>               <!-- Messagerie de Florent -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Menu.html">Menu</a>                     <!-- Menu déroulant pour choisir entre déconnecter/infoProfil/... -->
