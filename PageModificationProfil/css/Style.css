@@ -1,0 +1,61 @@
+
+#logo{
+  position: absolute;
+  left:11%;
+  top: 15%;
+  width: 4.5%;
+}
+#logoMeetBand{
+  position: absolute;
+  left:15%;
+  top: 50%;
+  width: 10%;
+}
+
+
+
+
+.tableauCouleur{
+  background-color: #f4f0f5;
+	padding: 2.5%;
+	position: relative;
+	top: 70%;
+	left: calc(5% + 14.06% - 1.041%);
+	width: calc(100% - 2*(5% + 14.06% -  1.041%));
+}
+
+
+.containerTable {
+  width: 100%;
+  padding-right: 8%;
+  padding-left: 8%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.valueInscription{
+    color : #4e555b;
+    background-color: snow;
+    width: 70%;
+}
+.tableauCouleur2{
+    width: 100%;
+}
+.h1P{
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.nomFormulaire{
+    text-align:right;
+    position:relative;
+    left:5%;
+}
+
+.formulaire{
+    position:relative;
+    text-align:left;
+    left:10%;
+    font-size:75%;
+}
