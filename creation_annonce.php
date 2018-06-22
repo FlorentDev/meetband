@@ -183,7 +183,7 @@ input[type="range"]:after {
     </br>
     </br>
     </br>
-      <h4><small>Annonces</small></h4>
+      <h4><small>Nouvelle annonce</small></h4>
       <hr>
      
  <p>
