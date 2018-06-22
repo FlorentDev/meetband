@@ -17,7 +17,8 @@ if (!isset($_SESSION['user']))
 }
 // On démarre la session AVANT d'écrire du code HTML
 
-$bdd = new PDO ('mysql: host = localhost ; dbname=annonces', 'root','');
+require('infoBDD.php');
+$bdd = new PDO ("mysql: host = $host; dbname=$db", $user,$pwd);
 if(isset($_SESSION['user']))
 {
     $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=1"); 
@@ -122,8 +123,7 @@ input[type="range"]:after {
 </head>
 <body>
     
-   
-    
+<?php include("Header/PageProfil.html"); ?>
 
 
 <div class="container-fluid">
