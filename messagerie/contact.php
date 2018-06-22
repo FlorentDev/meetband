@@ -11,8 +11,6 @@ require("../infoBDD.php");
 $bdd = new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
 
 session_start();
-$_SESSION['user']='Flo';
-$_SESSION['contact']='Sarah';
 $contact = new ArrayObject();
 $request = $bdd->prepare("SELECT s.username, r.username FROM message INNER JOIN user s on message.user1 = s.id INNER JOIN user r on message.user2 = r.id WHERE s.username=:sender or r.username=:receiver");
 $request->bindParam(":sender", $_SESSION['user']);
