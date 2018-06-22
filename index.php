@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -23,7 +24,21 @@ if(isset($_SESSION['user']))
     $recup->execute(array($_SESSION['user']));
             $donnees = $recup->fetch();
             
-       
+    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=2"); 
+    $recup->execute(array($_SESSION['user']));
+            $donnee1 = $recup->fetch();
+            
+    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=3"); 
+    $recup->execute(array($_SESSION['user']));
+            $donnee2 = $recup->fetch();
+            
+    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=4"); 
+    $recup->execute(array($_SESSION['user']));
+            $donnee2 = $recup->fetch();
+    
+    $recup = $bdd->prepare("SELECT * FROM annonces WHERE id=5"); 
+    $recup->execute(array($_SESSION['user']));
+            $donnee2 = $recup->fetch();
 
 ?>
 
@@ -138,7 +153,7 @@ input[type="range"]:after {
 </nav>
 
 <div class="container-fluid">
-  <div class="row content">
+  <div class="row ">
     <div class="col-sm-3 sidenav">
     </br>
     </br>
@@ -152,7 +167,7 @@ input[type="range"]:after {
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">
             <span class="glyphicon-search"></span>
-          </button>
+          </button> 
         </span>
       </div>
       </br>
@@ -191,7 +206,9 @@ input[type="range"]:after {
             
     </div>
 
-   
+      </br>
+      </br>
+      
     <div class="col-sm-9">
     </br>
     </br>
@@ -217,6 +234,44 @@ input[type="range"]:after {
           
      
 echo"<br><br>"; 
+
+
+ echo " <h4><small>Annonces</small></h4>";
+     echo" <hr>";
+     echo " <h2>". $donnee1['titre']." </h2>";
+          
+     echo '<div class="media">';
+       echo' <div class="media-left">';
+          echo '<img src="img_avatar1.png" class="media-object" style="width:45px">';
+      echo"  </div>";
+
+
+      
+     echo' <h5><span class=" glyphicon-calendar"></span> Post by Jane Dane, Sep 27, 2018.</h5>';
+      echo '<h5><span class="label label-danger">sing</span> <span class="label label-primary">voice</span></h5><br>';
+      echo"<p>". $donnee1['contenu']."</p>";
+          
+     
+echo"<br><br>"; 
+
+
+ echo " <h4><small>Annonces</small></h4>";
+     echo" <hr>";
+     echo " <h2>". $donnee2['titre']." </h2>";
+          
+     echo '<div class="media">';
+       echo' <div class="media-left">';
+          echo '<img src="img_avatar3.png" class="media-object" style="width:45px">';
+      echo"  </div>";
+
+
+      
+     echo' <h5><span class=" glyphicon-calendar"></span> Post by Jane Dane, Sep 27, 2018.</h5>';
+      echo '<h5><span class="label label-danger">sing</span> <span class="label label-primary">voice</span></h5><br>';
+      echo"<p>". $donnee2['contenu']."</p>";
+          
+     
+echo"<br><br>"; 
 }
 ?>
       
@@ -228,7 +283,9 @@ echo"<br><br>";
           </div>
         </div>
       </div>
-    </div>
+    
+    </br>
+    </br>
 <footer class="container-fluid">
  <h2>Avis</h2>
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
