@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MeetBand</title>
+    <link rel="icon" type="image/png" href="img/logo.png" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link href="css/BootStrapPageProfil.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet"> <!--typographie Nom-->
+
+
+  </head>
+
+
+
+
+
+
+  <body>
+    <!-- Navigation Entête -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <img id="logo" src="img/logo.png" alt="error"></img>
+        <img id="logoMeetBand" src="img/MeetBand2.png" alt="error"></img>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="Accueil.html">Accueil</a>               <!-- page de Sarah -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Profil</a>                  <!-- Page profil de Nelson -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Message.html">Message</a>               <!-- Messagerie de Florent -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Menu.html">Menu</a>                     <!-- Menu changer profil + déroulant pour choisir entre déconnecter/infoProfil/... -->
+          </ul>
+        </li>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <header class="masthead" style="background: linear-gradient(to bottom, #212529, #212529 40% , rgb(100,100,100) );">
+      <div class="overlay"></div><br><br><br>
+    </header>
+
+
+    <table class="tableauCouleur">
+      <tr>
+        <th>
+          <p class="h1P" style="padding:4%;background-color: #bdb9b9;">Cette page sert à modifier les caractéristiques de votre compte ( * : champ obligatoire)<br></p>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <table class="tableauCouleur2">
+            <!-- username -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">username * : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="text" name="username" value="Pseudo"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- firstname -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">firstname * : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="text" name="firstname" value="firsname"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- Sexe -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Sexe * : </p>
+              </td>
+              <td>
+                <form action="/action_page.php">
+                  <input class="valueInscription" type="radio" name="gender" value="male" checked> Male<br>
+                  <input class="valueInscription" type="radio" name="gender" value="female"> Female<br>
+                </form>
+              </td>
+            </tr>
+            <!-- Email -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">email * : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="email" name="email" value="adresse mail"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- Date de naissance -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Date de Naissance * : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="date" name="firstname" value="firsname"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- Avatar -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Avatar : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" name="Avatar" type="file" size="50" maxlength="100000"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- img_fond -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Image de fond : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" name="img_fond" type="file" size="50" maxlength="100000"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- Description -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Description * : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <textarea class="valueInscription" type="text" name="description" value="Descrivez vous !!"></textarea>
+                </form>
+              </td>
+            </tr>
+            <!-- youtube -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Lien youtube : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="url" name="youtube" value="Si vous en avez une"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- facebook -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Lien facebook : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="url" name="facebook" value="Si vous en avez un compte facebook"/></p>
+                </form>
+              </td>
+            </tr>
+            <!-- twitter -->
+            <tr>
+              <td class="nomFormulaire">
+                <p class="h1P">Lien twitter : </p>
+              </td>
+              <td>
+                <form class="formulaire" action="action.php" method="post">
+                  <input class="valueInscription" type="url" name="twitter" value="Si vous en avez un compte twitter"/></p>
+                </form>
+              </td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+    </table>
+
+    <hr>
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
